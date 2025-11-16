@@ -24,19 +24,17 @@ public class RepositorioMesaArray implements IRepositorioMesa {
 
     @Override
     public void atualizar(Mesa mesaAtualizada) {
-        Mesa mesaAntiga = buscarPorNumero(mesaAtualizada.getNumero());
-        if (mesaAntiga != null) {
-            mesas.remove(mesaAntiga);
-            mesas.add(mesaAtualizada);
+        for (int i = 0; i < mesas.size(); i++) {
+            if (mesas.get(i).getNumero() == mesaAtualizada.getNumero()) {
+                mesas.set(i, mesaAtualizada);
+                break;
+            }
         }
     }
 
     @Override
     public void cadastrar(Mesa mesa) {
-        if (buscarPorNumero(mesa.getNumero()) == null) {
-            this.mesas.add(mesa);
-        }
-        // (Idealmente, lançaria uma exceção se já existisse)
+        this.mesas.add(mesa);
     }
 
     @Override

@@ -14,9 +14,7 @@ public class RepositorioItemCardapioArray implements IRepositorioItemCardapio {
 
     @Override
     public void cadastrar(ItemCardapio item) {
-        if (buscarPorNome(item.getNome()) == null) {
-            this.itens.add(item);
-        }
+        this.itens.add(item);
     }
 
     @Override
@@ -31,12 +29,11 @@ public class RepositorioItemCardapioArray implements IRepositorioItemCardapio {
 
     @Override
     public void atualizar(ItemCardapio itemAtualizado) {
-        ItemCardapio itemAntigo = buscarPorNome(itemAtualizado.getNome());
-        if (itemAntigo != null) {
-            // Remove o antigo e adiciona o novo
-            // (Numa implementação real, talvez atualizássemos os campos)
-            itens.remove(itemAntigo);
-            itens.add(itemAtualizado);
+        for (int i = 0; i < itens.size(); i++) {
+            if (itens.get(i).getNome().equalsIgnoreCase(itemAtualizado.getNome())) {
+                itens.set(i, itemAtualizado);
+                break;
+            }
         }
     }
 
