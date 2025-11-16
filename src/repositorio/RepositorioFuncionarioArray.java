@@ -14,9 +14,7 @@ public class RepositorioFuncionarioArray implements IRepositorioFuncionario {
 
     @Override
     public void cadastrar(Funcionario funcionario) {
-        if (buscarPorNome(funcionario.getNome()) == null) {
-            this.funcionarios.add(funcionario);
-        }
+        this.funcionarios.add(funcionario);
     }
 
     @Override
@@ -31,10 +29,11 @@ public class RepositorioFuncionarioArray implements IRepositorioFuncionario {
 
     @Override
     public void atualizar(Funcionario funcionarioAtualizado) {
-        Funcionario funcionarioAntigo = buscarPorNome(funcionarioAtualizado.getNome());
-        if (funcionarioAntigo != null) {
-            funcionarios.remove(funcionarioAntigo);
-            funcionarios.add(funcionarioAtualizado);
+        for (int i = 0; i < funcionarios.size(); i++) {
+            if (funcionarios.get(i).getNome().equalsIgnoreCase(funcionarioAtualizado.getNome())) {
+                funcionarios.set(i, funcionarioAtualizado);
+                break;
+            }
         }
     }
 

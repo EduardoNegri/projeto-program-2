@@ -29,10 +29,11 @@ public class RepositorioPedidoArray implements IRepositorioPedido {
 
     @Override
     public void atualizar(Pedido pedidoAtualizado) {
-        Pedido pedidoAntigo = buscarPorId(pedidoAtualizado.getId());
-        if (pedidoAntigo != null) {
-            pedidos.remove(pedidoAntigo);
-            pedidos.add(pedidoAtualizado);
+        for (int i = 0; i < pedidos.size(); i++) {
+            if (pedidos.get(i).getId() == pedidoAtualizado.getId()) {
+                pedidos.set(i, pedidoAtualizado);
+                break;
+            }
         }
     }
 

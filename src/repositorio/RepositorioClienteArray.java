@@ -24,15 +24,16 @@ public class RepositorioClienteArray implements IRepositorioCliente {
                 return cliente;
             }
         }
-        return null; // Não encontrado
+        return null;
     }
 
     @Override
     public void atualizar(Cliente clienteAtualizado) {
-        Cliente clienteAntigo = buscarPorTelefone(clienteAtualizado.getTelefone());
-        if (clienteAntigo != null) {
-            clientes.remove(clienteAntigo);
-            clientes.add(clienteAtualizado);
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getTelefone().equals(clienteAtualizado.getTelefone())) {
+                clientes.set(i, clienteAtualizado);
+                break;
+            }
         }
     }
 
