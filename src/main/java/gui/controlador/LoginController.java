@@ -3,7 +3,7 @@ package gui.controlador;
 import gui.GerenciadorTelas;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField; // Importante
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import modelo.Funcionario;
 import negocio.Fachada;
@@ -16,7 +16,7 @@ public class LoginController implements IControlador {
     private TextField campoNome;
 
     @FXML
-    private PasswordField campoSenha; // Novo campo
+    private PasswordField campoSenha;
 
     @Override
     public void setFachada(Fachada fachada) {
@@ -36,13 +36,16 @@ public class LoginController implements IControlador {
         Funcionario funcionarioLogado = fachada.loginFuncionario(nome, senha);
 
         if (funcionarioLogado != null) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Bem-vindo");
-            alert.setHeaderText("Login realizado com sucesso!");
-            alert.setContentText("Olá, " + funcionarioLogado.getNome());
-            alert.showAndWait();
+            String cargo = funcionarioLogado.getCargo().toUpperCase(); // Transforma em maiúsculo para evitar erro
 
-            GerenciadorTelas.getInstance().trocarTela("/view/TelaPrincipal.fxml", "Menu Principal");
+            if (cargo.contains("COZINHA")) {
+                System.out.println("Login: Redirecionando para Cozinha...");
+                GerenciadorTelas.getInstance().trocarTela("/view/TelaCozinha.fxml", "Monitor de Cozinha");
+            } else {
+                System.out.println("Login: Redirecionando para Menu Principal...");
+                GerenciadorTelas.getInstance().trocarTela("/view/TelaPrincipal.fxml", "Menu Principal");
+            }
+
         } else {
             mostrarAlerta("Erro de Login", "Usuário ou senha incorretos.");
         }

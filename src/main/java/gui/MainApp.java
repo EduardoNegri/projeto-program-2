@@ -43,7 +43,7 @@ public class MainApp extends Application {
 
             try {
                 fachada.cadastrarFuncionario("Admin", "Gerente", "1234");
-                fachada.cadastrarFuncionario("Ana Cozinheira", "Cozinheira", "1234");
+                fachada.cadastrarFuncionario("Ana Cozinheira", "Cozinha", "1234");
                 fachada.cadastrarFuncionario("Carlos Garçom", "Garçom", "1234");
                 fachada.cadastrarFuncionario("Roberto Garçom", "Garçom", "1234");
                 fachada.cadastrarFuncionario("Juliana Caixa", "Atendente", "1234");

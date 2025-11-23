@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gui.controlador.TelaCozinhaController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Monitor de Cozinha" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #d32f2f;" />
+
+    <Label text="Pedidos em Preparo (Em breve)" />
+
+    <TextArea text="Nenhum pedido pendente..." editable="false" prefHeight="200" maxWidth="400"/>
+
+    <Button text="Atualizar Lista" />
+</VBox>
