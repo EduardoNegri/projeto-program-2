@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.example.sistemapedidosfx.RelatoriosController">
+   <children>
+      <Label text="Tela de Relatórios">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <VBox spacing="5.0">
+         <children>
+            <Label text="Data de Início:" />
+            <DatePicker fx:id="dataInicioPicker" prefWidth="250.0" />
+         </children>
+      </VBox>
+      <VBox spacing="5.0">
+         <children>
+            <Label text="Data de Fim:" />
+            <DatePicker fx:id="dataFimPicker" prefWidth="250.0" />
+         </children>
+      </VBox>
+      <Button fx:id="btnRelatorioVendas" mnemonicParsing="false" onAction="#gerarRelatorioVendasAction" prefWidth="250.0" text="Gerar Relatório de Vendas" />
+      <Button fx:id="btnItensMaisVendidos" mnemonicParsing="false" onAction="#gerarItensMaisVendidosAction" prefWidth="250.0" text="Itens Mais Vendidos" />
+      <TextArea fx:id="txtAreaRelatorios" editable="false" prefHeight="300.0" promptText="O relatório será exibido aqui..." wrapText="true">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </TextArea>
+   </children>
+</VBox>
