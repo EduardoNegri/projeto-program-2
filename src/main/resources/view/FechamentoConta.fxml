@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.controlador.FechamentoContaController"
+            style="-fx-background-color: #f5f5f5;">
+
+    <center>
+        <VBox spacing="16" alignment="CENTER_LEFT" padding="20">
+            <Label text="Fechamento da Conta" style="-fx-font-size: 20;" />
+
+            <HBox spacing="10">
+                <Label text="Valor Total:" />
+                <Label fx:id="labelValorTotal" text="R$ 0,00" />
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Método de Pagamento:" />
+                <ChoiceBox fx:id="choiceMetodo" />
+            </HBox>
+
+            <Button text="Pagar" fx:id="btnPagar"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </VBox>
+    </center>
+
+</BorderPane>

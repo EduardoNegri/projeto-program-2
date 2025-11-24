@@ -155,6 +155,12 @@ public class Fachada {
     public List<Pedido> listarPedidos() {
         return pedidoController.listarTodosPedidos();
     }
+    public Pedido criarPedidoParaMesa(int numeroMesa) {
+    Pedido p = new Pedido(java.time.LocalDateTime.now(), null);
+    p.setNumeroMesa(numeroMesa);
+    repositorioPedido.inserir(p);
+    return p;
+}
 
     // =======================================================
     //                  OPERAÇÕES DE RESERVA

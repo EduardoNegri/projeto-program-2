@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.controlador.TelaPedidoController"
+            style="-fx-background-color: #f5f5f5;">
+
+    <top>
+        <Label text="Pedido da Mesa"
+               style="-fx-font-size: 22px; -fx-padding: 15; -fx-font-weight: bold;"/>
+    </top>
+
+    <center>
+        <VBox spacing="12" padding="20">
+
+            <Label fx:id="labelMesa" style="-fx-font-size: 16px;" />
+
+            <TableView fx:id="tabelaItens" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colNome" text="Item" prefWidth="200"/>
+                    <TableColumn fx:id="colQtd" text="Qtd" prefWidth="80"/>
+                    <TableColumn fx:id="colPreco" text="Preço" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10">
+                <Label text="Total:" style="-fx-font-size: 18px;"/>
+                <Label fx:id="labelTotal" text="R$ 0,00" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="15" alignment="CENTER" padding="20">
+
+            <Button fx:id="btnAdicionar"
+                    text="Adicionar Item"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+
+            <Button fx:id="btnPagar"
+                    text="Pagar"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+
+            <Button fx:id="btnVoltar"
+                    text="Voltar"
+                    style="-fx-background-color: #9E9E9E; -fx-text-fill: white;" />
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

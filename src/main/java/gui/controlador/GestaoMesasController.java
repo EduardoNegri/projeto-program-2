@@ -62,7 +62,21 @@ public class GestaoMesasController implements IControlador {
             btn.setStyle(btn.getStyle() + "-fx-background-color: #4CAF50; -fx-text-fill: white;");
             
             // Ação: Navegar para Pedido
-            btn.setOnAction(e -> abrirTelaPedido(mesa));
+            private void abrirTelaPedido(Mesa mesa) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TelaPedido.fxml"));
+        Parent root = loader.load();
+
+        TelaPedidoController controller = loader.getController();
+        controller.carregarMesa(mesa);
+
+        GerenciadorTelas.getInstance().getStagePrincipal().setScene(new Scene(root));
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
             
         } else if (mesa.getStatus() == StatusMesa.OCUPADA) {
             // VERMELHO
